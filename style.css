@@ -1,19 +1,31 @@
+* {
+  box-sizing:border-box;
+}
 #api_today_cid228_iid1448 {
   padding: 10px;
   position: absolute;
   top:0;
-  right:0;
+  left:500px;
+  white-space: nowrap;
 }
 #sidebar {
   position: absolute;
   top:50px;
   left:0;
-  width: 400px;
+  width: 480px;
   text-align: center;
   font-size:100px;
   font-weight: bold;
   padding:10px;
   line-height: 100%;
+  white-space: nowrap;
+}
+#logo {
+  margin: 0 auto;
+  display: block;
+}
+#clock {
+  font-size:90px;
 }
 a:link,
 a:visited {
