@@ -1,0 +1,49 @@
+#api_today_cid228_iid1448 {
+  padding: 10px;
+  position: absolute;
+  top:0;
+  right:0;
+}
+#sidebar {
+  position: absolute;
+  top:50px;
+  left:0;
+  width: 400px;
+  text-align: center;
+  font-size:100px;
+  font-weight: bold;
+  padding:10px;
+  line-height: 100%;
+}
+a:link,
+a:visited {
+  color: black;
+}
+body,
+table td {
+  font-family: 'Lato', 'Gill Sans', 'Gill Sans MT';
+  font-size: 20px;
+}
+h3 {
+  font-weight: bold;
+  font-size: 100px;
+  margin: 0;
+}
+.s-lc-ea-ttit td {
+  font-weight: bold;
+  font-size: 30px;
+}
+.s-lc-ea-ttim,
+.s-lc-ea-tloc {
+  display: inline;
+  padding-right: 1em;
+}
+.s-lc-ea-tloc {
+  font-style: italic;
+}
+#api_today_cid228_iid1448 h3,
+.s-lc-ea-l,
+.s-lc-ea-tdat,
+.s-lc-ea-tcat,
+.s-lc-ea-tdes,
+.s-lc-ea-tpre { display: none; }
