@@ -11,8 +11,8 @@ body {
 body:after {
   content: "";
   position: absolute;
-  top:5px;
-  bottom:5px;
+  top:7px;
+  bottom:7px;
   left:1325px;
   width:30px;
   background-image: linear-gradient(to right, transparent, white);
