@@ -18,7 +18,7 @@ body:after {
   background-image: linear-gradient(to right, transparent, white);
   z-index:100;
 }
-#api_today_cid228_iid1448 {
+.eventList {
   padding: 10px;
   position: absolute;
   top:0;
@@ -71,7 +71,7 @@ h3 {
 .s-lc-ea-tloc {
   font-style: italic;
 }
-#api_today_cid228_iid1448 h3,
+.eventList h3,
 .s-lc-ea-l,
 .s-lc-ea-tdat,
 .s-lc-ea-tcat,
