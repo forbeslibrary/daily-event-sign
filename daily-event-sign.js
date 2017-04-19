@@ -2,10 +2,12 @@ var settings = {
   "eventsRefresh": 60, // refresh events refresh rate, in seconds
   "calendarID": "228", // LibCal calendar ID
   "institutionID": "1448", // LibCal institution ID
-  "categories": [5064, 4979, 4981] // an array of categories IDs from LibCal
+  "categories": [5064, 4979, 4981], // an array of categories IDs from LibCal
+  "logoFile": "img/Forbes_logo_noSubText_margins.png"
 };
 
 var clock = document.getElementById('clock');
+var logo = document.getElementById('logo');
 var eventDiv;
 
 /**
@@ -16,6 +18,9 @@ function init() {
   eventDiv.id = 'api_today_cid' + settings.calendarID + '_iid' + settings.institutionID;
   eventDiv.className = 'eventList';
   document.getElementsByTagName('body')[0].appendChild(eventDiv);
+
+  logo.src = settings.logoFile;
+
   updateClock();
   loadEvents();
   setInterval(updateClock, 1000);
