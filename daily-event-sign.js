@@ -74,6 +74,7 @@ function adapt() {
     var scaleFactor = 768.0 / height;
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
+    eventDiv.style.width = 860.0 / scaleFactor;
   } else {
     eventDiv.style.transform = 'translateY(' + (768 - height) / 3 + 'px)';
   }
