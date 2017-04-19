@@ -39,6 +39,14 @@ body:after {
   line-height: 100%;
   white-space: nowrap;
 }
+.fullScreenImage {
+  position: absolute;
+  left:0;
+  top:0;
+  width:1360px;
+  height:768px;
+  z-index: 200;
+}
 #logo {
   margin: 0 auto;
   display: block;

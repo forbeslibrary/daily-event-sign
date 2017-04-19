@@ -3,11 +3,13 @@ var settings = {
   "calendarID": "228", // LibCal calendar ID
   "institutionID": "1448", // LibCal institution ID
   "categories": [5064, 4979, 4981], // an array of categories IDs from LibCal
-  "logoFile": "img/Forbes_logo_noSubText_margins.png"
+  "logoFile": "img/Forbes_logo_noSubText_margins.png",
+  "singleEventFile": "img/Hosmer Gallery kiosk slide 2017 April.jpg" // displayed if only one event
 };
 
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
+var fullScreenImage;
 var eventDiv;
 
 /**
@@ -18,6 +20,11 @@ function init() {
   eventDiv.id = 'api_today_cid' + settings.calendarID + '_iid' + settings.institutionID;
   eventDiv.className = 'eventList';
   document.getElementsByTagName('body')[0].appendChild(eventDiv);
+
+  fullScreenImage = document.createElement('img');
+  fullScreenImage.className = 'fullScreenImage';
+  fullScreenImage.src = settings.singleEventFile;
+  document.getElementsByTagName('body')[0].appendChild(fullScreenImage);
 
   logo.src = settings.logoFile;
 
@@ -78,6 +85,19 @@ function adapt() {
   } else {
     eventDiv.style.transform = 'translateY(' + (768 - height) / 3 + 'px)';
   }
+
+  if (eventCount()===1 && settings.singleEventFile) {
+    fullScreenImage.style.display = "block";
+  } else {
+    fullScreenImage.style.display = "none";
+  }
+}
+
+/**
+ * Returns the number of events
+ */
+function eventCount() {
+  return eventDiv.childNodes.length - 1;
 }
 
 init();
