@@ -8,16 +8,6 @@ body {
   overflow: hidden;
   border: solid #8A2629 5px;
 }
-body:after {
-  content: "";
-  position: absolute;
-  top:7px;
-  bottom:7px;
-  left:1325px;
-  width:30px;
-  background-image: linear-gradient(to right, transparent, white);
-  z-index:100;
-}
 .eventList {
   padding: 10px;
   position: absolute;
