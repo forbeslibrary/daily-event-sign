@@ -51,16 +51,11 @@ a:visited {
 body,
 table td {
   font-family: 'Lato', 'Gill Sans', 'Gill Sans MT';
-  font-size: 20px;
-}
-h3 {
-  font-weight: bold;
-  font-size: 100px;
-  margin: 0;
+  font-size: 30px;
 }
 .s-lc-ea-ttit td {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
 }
 .s-lc-ea-ttim,
 .s-lc-ea-tloc {
