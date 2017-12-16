@@ -8,6 +8,8 @@ var settings = {
 
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
+var docWidth = document.documentElement.clientWidth;
+var docHeight = document.documentElement.clientHeight;
 var eventDiv;
 
 /**
@@ -70,13 +72,13 @@ function loadEvents() {
 function adapt() {
   // scale events if they are two tall for screen
   var height = eventDiv.offsetHeight;
-  if (height > 768) {
-    var scaleFactor = 768.0 / height;
+  if (height > docHeight) {
+    var scaleFactor = (docHeight + 0.0) / height;
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
     eventDiv.style.width = 860.0 / scaleFactor;
   } else {
-    eventDiv.style.transform = 'translateY(' + (768 - height) / 3 + 'px)';
+    eventDiv.style.transform = 'translateY(' + (docHeight - height) / 3 + 'px)';
   }
 }
 
