@@ -8,12 +8,13 @@ body {
   overflow: hidden;
   border: solid #8A2629 5px;
 }
+
 .eventList {
   padding: 10px;
   position: absolute;
   top:0;
   left:500px;
-  width:860px;
+  right:0px;
   white-space: nowrap;
   z-index:0;
 }
@@ -28,6 +29,29 @@ body {
   padding:10px;
   line-height: 100%;
   white-space: nowrap;
+}
+#header {
+  display: none;
+}
+@media (max-aspect-ratio: 13/8) {
+  #header {
+    display: block;
+    padding: 0.5em;
+    margin: 0;
+  }
+  #sidebar {
+    display: none;
+  }
+  .eventList {
+    position: relative;
+    width:100%;
+    left:0;
+    right:0;
+  }
+}
+#small-logo {
+  vertical-align: middle;
+  margin: 0;
 }
 #logo {
   margin: 0 auto;

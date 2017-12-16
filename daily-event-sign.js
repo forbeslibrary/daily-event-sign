@@ -8,6 +8,8 @@ var settings = {
 
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
+var smallLogo = document.getElementById('small-logo');
+var header = document.getElementById('header');
 var docWidth = document.documentElement.clientWidth;
 var docHeight = document.documentElement.clientHeight;
 var eventDiv;
@@ -22,6 +24,7 @@ function init() {
   document.getElementsByTagName('body')[0].appendChild(eventDiv);
 
   logo.src = settings.logoFile;
+  smallLogo.src = settings.logoFile;
 
   updateClock();
   loadEvents();
@@ -72,13 +75,14 @@ function loadEvents() {
 function adapt() {
   // scale events if they are two tall for screen
   var height = eventDiv.offsetHeight;
-  if (height > docHeight) {
-    var scaleFactor = (docHeight + 0.0) / height;
+  var availableHeight = docHeight - header.clientHeight + 0.0 ;
+  if (height > availableHeight) {
+    var scaleFactor = (availableHeight) / height;
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
     eventDiv.style.width = 860.0 / scaleFactor;
   } else {
-    eventDiv.style.transform = 'translateY(' + (docHeight - height) / 3 + 'px)';
+    eventDiv.style.transform = 'translateY(' + (availableHeight - height) / 3 + 'px)';
   }
 }
 
