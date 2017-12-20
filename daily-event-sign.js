@@ -6,6 +6,14 @@ var settings = {
   "logoFile": "img/Forbes_logo_noSubText_margins.png",
 };
 
+var params = (new URL(location)).searchParams;
+if (params.has("category")) {
+  settings.categories = params.getAll("category");
+}
+if (params.has("logoFile")) {
+  settings.logoFile = params.getAll("logoFile");
+}
+
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
 var smallLogo = document.getElementById('small-logo');
