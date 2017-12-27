@@ -1,82 +1,38 @@
 * {
   box-sizing:border-box;
 }
-body {
-  width:100%;
-  height:100%;
-  margin: 0;
-  overflow: hidden;
-  border: solid #8A2629 5px;
-}
 
-.eventList {
-  padding: 10px;
-  position: absolute;
-  top:0;
-  left:500px;
-  right:0px;
-  white-space: nowrap;
-  z-index:0;
-}
 #sidebar {
-  position: absolute;
-  top:50px;
-  left:0;
-  width: 480px;
-  text-align: center;
-  font-size:100px;
-  font-weight: bold;
-  padding:10px;
-  line-height: 100%;
-  white-space: nowrap;
-}
-#header {
-  display: none;
-}
-@media (max-aspect-ratio: 13/8) {
-  #header {
-    display: block;
-    padding: 0.5em;
-    margin: 0;
-  }
-  #sidebar {
-    display: none;
-  }
-  .eventList {
-    position: relative;
-    width:100%;
-    left:0;
-    right:0;
-  }
-}
-#small-logo {
-  vertical-align: middle;
-  margin: 0;
+  font-size: 10vmin;
 }
 #logo {
   margin: 0 auto;
-  display: block;
+  display: none;
 }
-#clock {
-  font-size:90px;
-}
+
 a:link,
 a:visited {
   color: black;
 }
+table {
+  margin: 0.5vh 0;
+}
+body {
+  padding: 1vmin;
+}
 body,
 table td {
   font-family: 'Lato', 'Gill Sans', 'Gill Sans MT';
-  font-size: 30px;
+  font-size: 3vmin;
 }
 .s-lc-ea-ttit td {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 4vmin;
 }
 .s-lc-ea-ttim,
 .s-lc-ea-tloc {
   display: inline;
-  padding-right: 1em;
+  padding-right: 1vmin;
 }
 .s-lc-ea-tloc {
   font-style: italic;
@@ -87,3 +43,78 @@ table td {
 .s-lc-ea-tcat,
 .s-lc-ea-tdes,
 .s-lc-ea-tpre { display: none; }
+
+.eventList {
+  padding: 3vmin;
+}
+
+body {
+  width:100%;
+  height:100%;
+  margin: 0;
+  overflow: hidden;
+  border: solid #8A2629 0.75vmin;
+}
+
+#sidebar {
+  font-weight: bold;
+}
+
+@media (max-aspect-ratio: 8/13) {
+  /* Widescreen Portrait */
+  body,
+  table td {
+    font-size: 4vw;
+  }
+  .s-lc-ea-ttit td {
+    font-size: 6vw;
+  }
+  #clock {
+    font-size:10vw;
+  }
+  #logo {
+    display: block;
+    width: 50vw;
+  }
+  #sidebar {
+    display: block;
+    font-size: 12vw;
+    padding: 0.5em;
+    margin: 0;
+    text-align: center;
+  }
+  .eventList {
+    position: relative;
+    width:100%;
+    left:0;
+    right:0;
+  }
+}
+@media (min-aspect-ratio: 13/8) {
+  /* Widescreen Landscape */
+  #clock {
+    font-size:90px;
+  }
+  #logo {
+    display: block;
+  }
+  #sidebar {
+    display: block;
+    position: absolute;
+    top:50px;
+    left:0;
+    width: 480px;
+    text-align: center;
+    font-size:100px;
+    font-weight: bold;
+    padding:10px;
+    line-height: 100%;
+  }
+  .eventList {
+    position: absolute;
+    top:0;
+    left:500px;
+    right:0px;
+    z-index:0;
+  }
+}

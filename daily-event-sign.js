@@ -14,12 +14,12 @@ if (params.has("logoFile")) {
   settings.logoFile = params.getAll("logoFile");
 }
 
+var sidebar = document.getElementById('sidebar');
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
-var smallLogo = document.getElementById('small-logo');
-var header = document.getElementById('header');
-var docWidth = document.documentElement.clientWidth;
-var docHeight = document.documentElement.clientHeight;
+var docWidth = document.documentElement.clientWidth + 0.0;
+var docHeight = document.documentElement.clientHeight + 0.0;
+var aspectRatio = docWidth / docHeight;
 var eventDiv;
 
 /**
@@ -32,7 +32,6 @@ function init() {
   document.getElementsByTagName('body')[0].appendChild(eventDiv);
 
   logo.src = settings.logoFile;
-  smallLogo.src = settings.logoFile;
 
   updateClock();
   loadEvents();
@@ -83,12 +82,15 @@ function loadEvents() {
 function adapt() {
   // scale events if they are two tall for screen
   var height = eventDiv.offsetHeight;
-  var availableHeight = docHeight - header.clientHeight + 0.0 ;
+  var availableHeight = docHeight + 0.0 ;
+  if (aspectRatio < 13.0/8.0) {
+    availableHeight = availableHeight - sidebar.offsetHeight;
+  }
   if (height > availableHeight) {
     var scaleFactor = (availableHeight) / height;
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
-    eventDiv.style.width = 860.0 / scaleFactor;
+    eventDiv.style.width = docWidth / scaleFactor;
   } else {
     eventDiv.style.transform = 'translateY(' + (availableHeight - height) / 3 + 'px)';
   }
