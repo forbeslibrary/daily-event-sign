@@ -96,11 +96,4 @@ function adapt() {
   }
 }
 
-/**
- * Returns the number of events
- */
-function eventCount() {
-  return eventDiv.childNodes.length - 1;
-}
-
 init();
