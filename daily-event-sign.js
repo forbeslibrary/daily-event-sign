@@ -70,7 +70,8 @@ function loadEvents() {
   script.async = true;
   script.onload = function(){
       // remote script has loaded
-      adapt();
+      // we will use a slight delay to make sure content has rendered before proceeding
+      setTimeout(adapt, 1)
   };
   script.src = eventsURL();
   document.getElementsByTagName('head')[0].appendChild(script);
