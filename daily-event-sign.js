@@ -83,12 +83,19 @@ function loadEvents() {
 function adapt() {
   // scale events if they are two tall for screen
   var height = eventDiv.offsetHeight;
-  var availableHeight = docHeight + 0.0 ;
+  var availableHeight = docHeight;
   if (aspectRatio < 13.0/8.0) {
-    availableHeight = availableHeight - sidebar.offsetHeight;
+    availableHeight = docHeight  - sidebar.offsetHeight;
   }
+  var scaleFactor = (availableHeight) / height;
+  if (scaleFactor < 0.85) {
+    // hide logo if font size would have to be reduced to less than 85%
+    logo.style.display = "none";
+    availableHeight = docHeight - sidebar.offsetHeight;
+    scaleFactor = (availableHeight) / height;
+  }
+  console.log(scaleFactor);
   if (height > availableHeight) {
-    var scaleFactor = (availableHeight) / height;
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
     eventDiv.style.width = docWidth / scaleFactor;
