@@ -6,6 +6,11 @@ var settings = {
   "logoFile": "img/Forbes_logo_noSubText_margins.png",
 };
 
+/**
+ * We will store the script element for the remote LibCal script in this variable
+ */
+var remoteScript;
+
 var params = (new URL(location)).searchParams;
 if (params.has("category")) {
   settings.categories = params.getAll("category");
@@ -17,6 +22,7 @@ if (params.has("logoFile")) {
 var sidebar = document.getElementById('sidebar');
 var clock = document.getElementById('clock');
 var logo = document.getElementById('logo');
+var borderWidth = parseFloat(getComputedStyle(document.body).getPropertyValue('border-left-width'));
 var docWidth = document.documentElement.clientWidth + 0.0;
 var docHeight = document.documentElement.clientHeight + 0.0;
 var aspectRatio = docWidth / docHeight;
@@ -65,16 +71,19 @@ function eventsURL() {
  * Load events
  */
 function loadEvents() {
-  script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.async = true;
-  script.onload = function(){
+  if (remoteScript) {
+    remoteScript.remove();
+  }
+  remoteScript = document.createElement('script');
+  remoteScript.type = 'text/javascript';
+  remoteScript.async = true;
+  remoteScript.onload = function(){
       // remote script has loaded
       // we will use a slight delay to make sure content has rendered before proceeding
-      setTimeout(adapt, 1)
+      setTimeout(adapt, 1);
   };
-  script.src = eventsURL();
-  document.getElementsByTagName('head')[0].appendChild(script);
+  remoteScript.src = eventsURL();
+  document.getElementsByTagName('head')[0].appendChild(remoteScript);
 }
 
 /**
@@ -83,18 +92,21 @@ function loadEvents() {
 function adapt() {
   // scale events if they are two tall for screen
   var height = eventDiv.offsetHeight;
-  var availableHeight = docHeight;
+  var availableHeight;
   if (aspectRatio < 13.0/8.0) {
-    availableHeight = docHeight  - sidebar.offsetHeight;
+    availableHeight = docHeight  - sidebar.offsetHeight - borderWidth * 2;
+  } else {
+    availableHeight = docHeight - borderWidth * 2;
   }
   var scaleFactor = (availableHeight) / height;
-  if (scaleFactor < 0.85) {
+  console.log(`Adapting stage 1: scaleFactor=${scaleFactor}`);
+  if (aspectRatio < 13.0/8.0 && scaleFactor < 0.85) {
     // hide logo if font size would have to be reduced to less than 85%
     logo.style.display = "none";
-    availableHeight = docHeight - sidebar.offsetHeight;
+    availableHeight = docHeight - sidebar.offsetHeight - borderWidth * 2;
     scaleFactor = (availableHeight) / height;
   }
-  console.log(scaleFactor);
+  console.log(`Adapting stage 2: scaleFactor=${scaleFactor}`);
   if (height > availableHeight) {
     eventDiv.style['transform-origin'] = "top left";
     eventDiv.style.transform = 'scale(' + scaleFactor + ',' + scaleFactor + ')';
