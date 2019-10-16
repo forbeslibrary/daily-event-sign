@@ -79,8 +79,7 @@ function loadEvents() {
   remoteScript.async = true;
   remoteScript.onload = function(){
       // remote script has loaded
-      // we will use a slight delay to make sure content has rendered before proceeding
-      setTimeout(adapt, 1);
+      window.requestAnimationFrame(adapt);
   };
   remoteScript.src = eventsURL();
   document.getElementsByTagName('head')[0].appendChild(remoteScript);
