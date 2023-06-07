@@ -3,7 +3,7 @@ var settings = {
   "calendarID": "228", // LibCal calendar ID
   "institutionID": "1448", // LibCal institution ID
   "categories": [5064, 4979, 4981], // an array of categories IDs from LibCal
-  "logoFile": "img/Forbes_logo_noSubText_margins.png",
+  "logoFile": "img/Forbes-Logo-Vertical.png",
 };
 
 /**

@@ -12,7 +12,8 @@
 
 a:link,
 a:visited {
-  color: black;
+  color: #244860;
+  text-decoration: none;
 }
 table {
   margin: 0.5vh 0;
@@ -23,8 +24,11 @@ body {
 }
 body,
 table td {
-  font-family: 'Lato', 'Gill Sans', 'Gill Sans MT';
+  font-family: Montserrat, sans-serif;
   font-size: 3vmin;
+}
+.eventList .s-lc-ea-tb {
+  border-bottom: 0.2vh dotted #ebb450;
 }
 .s-lc-ea-ttit td {
   font-weight: bold;
@@ -50,15 +54,16 @@ table td {
 }
 
 body {
-  width:100%;
-  height:100%;
+  width:100vw;
+  height:100vh;
   margin: 0;
   overflow: hidden;
-  border: solid #8A2629 0.75vmin;
+  border: solid #244860 0.75vmin;
 }
 
 #sidebar {
   font-weight: bold;
+  color: #5d989f;
 }
 
 @media (max-aspect-ratio: 8/13) {
@@ -79,7 +84,7 @@ body {
   }
   #sidebar {
     display: block;
-    font-size: 12vw;
+    font-size: 10vw;
     padding: 0.5em;
     margin: 0;
     text-align: center;
